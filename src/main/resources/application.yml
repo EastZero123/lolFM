@@ -1,0 +1,36 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+
+spring:
+  datasource:
+    # MySQL 8 드라이버 및 접속 경로 설정
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://121.78.125.91:3306/esport?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: eastzero
+    password: 1234
+
+  jpa:
+    hibernate:
+      # 개발 단계에서는 update, 운영 단계에서는 validate 권장
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        # MySQL 8 전용 방언 설정
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  # Thymeleaf 캐시 해제 (개발 중 화면 변경 사항 즉시 반영)
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
