@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>LOL FM - 선수 카드 생성</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="container">
+    <h2>NEW PLAYER CARD</h2>
+
+    <form th:action="@{/admin/players/new}" th:object="${player}" method="post">
+
+        <div class="form-group">
+            <label for="name">선수 닉네임 (Name)</label>
+            <input type="text" id="name" th:field="*{name}" placeholder="예: Faker" required>
+        </div>
+
+        <div class="form-group">
+            <label for="basePotential">잠재력 (Base Potential)</label>
+            <input type="number" id="basePotential" th:field="*{basePotential}" min="0" max="100">
+        </div>
+
+        <div class="stat-section">
+            <div class="section-title">PERFORMANCE ABILITY</div>
+            <div class="form-group">
+                <label>라인전 (Laning)</label>
+                <input type="number" th:field="*{stats.laning}" min="0" max="100">
+            </div>
+            <div class="form-group">
+                <label>한타 (TeamFight)</label>
+                <input type="number" th:field="*{stats.teamFight}" min="0" max="100">
+            </div>
+            <div class="form-group">
+                <label>CS 수급 (CS Farming)</label>
+                <input type="number" th:field="*{stats.csFarming}" min="0" max="100">
+            </div>
+            <div class="form-group">
+                <label>운영 (Macro)</label>
+                <input type="number" th:field="*{stats.macro}" min="0" max="100">
+            </div>
+        </div>
+
+        <div class="stat-section">
+            <div class="section-title">MODIFIERS & CONSISTENCY</div>
+            <div class="form-group">
+                <label>밴픽 적응 (Draft)</label>
+                <input type="number" th:field="*{stats.draftAdapt}" min="0" max="100">
+            </div>
+            <div class="form-group">
+                <label>메타 적응 (Meta)</label>
+                <input type="number" th:field="*{stats.metaAdapt}" min="0" max="100">
+            </div>
+            <div class="form-group">
+                <label>빅게임 (Big Game)</label>
+                <input type="number" th:field="*{stats.bigGameClutch}" min="0" max="100">
+            </div>
+            <div class="form-group">
+                <label>일관성 (Consistency)</label>
+                <input type="number" th:field="*{stats.consistency}" min="0" max="100">
+            </div>
+        </div>
+
+        <button type="submit" class="btn-submit">선수 카드 생성하기</button>
+    </form>
+</div>
+
+</body>
+</html>

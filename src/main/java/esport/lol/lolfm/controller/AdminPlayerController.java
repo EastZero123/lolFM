@@ -21,9 +21,9 @@ public class AdminPlayerController {
         return "admin/player-form";
     }
 
-    @PostMapping
-    public String register(@ModelAttribute) {
-        playerMaterService.register();
-        return "redirect:/admin/player";
-    }
+//    @PostMapping
+//    public String register(@ModelAttribute ) {
+//        playerMaterService.register();
+//        return "redirect:/admin/player";
+//    }
 }

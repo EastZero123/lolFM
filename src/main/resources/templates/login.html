@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>LOL FM - Login</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        .login-box {
+            margin-top: 100px;
+        }
+        .error-msg {
+            color: #ff4d4d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container login-box">
+    <h2>LOL FM LOGIN</h2>
+
+    <div th:if="${param.error}" class="error-msg">
+        아이디 또는 비밀번호가 일치하지 않습니다.
+    </div>
+    <div th:if="${param.logout}" class="error-msg" style="color: #00ffcc;">
+        로그아웃 되었습니다.
+    </div>
+
+    <form th:action="@{/login}" method="post">
+        <div class="form-group">
+            <label for="username">USERNAME</label>
+            <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">PASSWORD</label>
+            <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required>
+        </div>
+
+        <button type="submit" class="btn-submit">ENTER THE GAME</button>
+    </form>
+</div>
+
+</body>
+</html>
