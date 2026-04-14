@@ -18,5 +18,5 @@ public class ObjectPlayer {
     private int basePotential;
 
     @Embedded
-    private ObjectStat stat;
+    private ObjectStat stats;
 }
